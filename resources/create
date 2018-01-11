@@ -2,7 +2,7 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-aws cloudformation create-stack \
+aws --profile staging cloudformation create-stack \
       --stack-name $PROJECT_NAME \
       --parameters ParameterKey=GithubProjectName,ParameterValue=$GITHUB_PROJECT_NAME \
                    ParameterKey=GithubToken,ParameterValue=$GITHUB_TOKEN \
@@ -11,5 +11,5 @@ aws cloudformation create-stack \
       --capabilities CAPABILITY_IAM \
       --capabilities CAPABILITY_NAMED_IAM && \
 
-      aws cloudformation wait stack-create-complete \
+      aws --profile staging cloudformation wait stack-create-complete \
         --stack-name $PROJECT_NAME

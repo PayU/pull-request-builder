@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-AWS.config.update({ region: 'us-east-1' });
+AWS.config.update({ region: 'eu-central-1' });
 const codebuild = new AWS.CodeBuild()
 const status = require('./status')
 const promiseRetry = require('promise-retry');
