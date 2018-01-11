@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-AWS.config.update({ region: 'us-east-1' });
+AWS.config.update({ region: 'eu-central-1' });
 const codebuild = new AWS.CodeBuild()
 const status = require('./status')
 
@@ -10,7 +10,8 @@ module.exports.run = (sourceVersion) => {
     codebuild.startBuild({
       projectName: process.env.PROJECT_NAME,
       artifactsOverride: { type: 'NO_ARTIFACTS' },
-      sourceVersion: sourceVersion
+      sourceVersion: sourceVersion, 
+        environmentVariablesOverride: [ { name: 'TRIGGERED_BY_GITHUB', value: 'true' } ]
     })
       .promise()
 

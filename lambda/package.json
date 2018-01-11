@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "zip -q -r package.zip * && aws lambda update-function-code --function-name $PROJECT_NAME --zip-file 'fileb://package.zip'",
+    "deploy": "zip -q -r package.zip * && aws --profile staging lambda update-function-code --function-name $PROJECT_NAME --zip-file 'fileb://package.zip'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +14,5 @@
     "octonode": "0.7.7",
     "promise-retry": "1.1.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

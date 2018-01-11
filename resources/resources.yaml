@@ -46,9 +46,7 @@ Resources:
           - Effect: Allow
             Principal:
               Service:
-                - codebuild.us-east-1.amazonaws.com
-                - codebuild.us-west-2.amazonaws.com
-                - codebuild.eu-west-1.amazonaws.com
+                - codebuild.amazonaws.com
             Action:
               - sts:AssumeRole
       Path: "/"
@@ -81,9 +79,9 @@ Resources:
       Environment:
         Type: linuxContainer
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/nodejs:4.4.7
+        Image: aws/codebuild/java:openjdk-8
       Source:
-        Location: https://github.com/tatums/aws-sam-example.git
+        Location: https://github.com/PayU/red-dragon.git
         Type: GITHUB
       TimeoutInMinutes: 10
 
